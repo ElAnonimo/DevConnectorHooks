@@ -26,20 +26,22 @@ const ProfileForm = ({
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   useEffect(() => {
-    setProfileData({
-      company: !loading ? profile.company : '',
-      website: !loading ? profile.website : '',
-      location: !loading ? profile.location : '',
-      status: !loading ? profile.status : '',
-      skills: !loading ? profile.skills.join() : '',
-      githubUsername: !loading ? profile.githubUsername : '',
-      bio: !loading ? profile.bio : '',
-      twitter: !loading ? profile && profile.social && profile.social.twitter : '',
-      facebook: !loading ? profile && profile.social && profile.social.facebook : '',
-      linkedin: !loading ? profile && profile.social && profile.social.linkedin : '',
-      youtube: !loading ? profile && profile.social && profile.social.youtube : '',
-      instagram: !loading ? profile && profile.social && profile.social.instagram : ''
-    });
+    if (!loading) {
+      setProfileData({
+        company: profile?.company || '',
+        website: profile?.website || '',
+        location: profile?.location || '',
+        status: profile?.status || '',
+        skills: profile?.skills?.join() || '',
+        githubUsername: profile?.githubUsername || '',
+        bio: profile?.bio || '',
+        twitter: profile?.social?.twitter || '',
+        facebook: profile?.social?.facebook || '',
+        linkedin: profile?.social?.linkedin || '',
+        youtube: profile?.social?.youtube || '',
+        instagram: profile?.social?.instagram || ''
+      })
+    }
   }, [loading, profile]);
 
   const {

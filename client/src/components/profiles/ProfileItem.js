@@ -12,7 +12,7 @@ const Profiles = ({ profile: {
 } }) => {
   return (
     <div className='profile bg-light'>
-      <img src={userpic} className='round-img' />
+      <img src={userpic} className='round-img' alt='userpic' />
       <div>
         <h2>{name}</h2>
         <p>{status} {company && <span> at {company}</span>}</p>

@@ -22,7 +22,7 @@ const CommentItem = ({
     <div className='post bg-white p-1 my-1'>
       <div>
         <Link to={`/profile/${user}`}>
-          <img className='round-img' src={userpic} />
+          <img className='round-img' src={userpic} alt='userpic' />
           <h4>{name}</h4>
         </Link>
       </div>
