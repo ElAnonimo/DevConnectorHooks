@@ -49,7 +49,7 @@ const AddEducation = ({ addEducation, history }) => {
         <i className='fas fa-code-branch' /> Add any school or bootcamp that you have attended
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={evt => onSubmit(evt)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='text'

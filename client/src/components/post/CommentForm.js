@@ -17,7 +17,7 @@ const CommentForm = ({ postId, addComment }) => {
       <div className='bg-primary p'>
         <h3>Add a Comment</h3>
       </div>
-      <form className='form my-1' onSubmit={evt => onSubmit(evt)}>
+      <form className='form my-1' onSubmit={onSubmit}>
         <textarea
           name='text'
           cols='30'

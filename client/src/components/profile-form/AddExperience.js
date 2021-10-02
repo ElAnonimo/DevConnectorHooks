@@ -50,7 +50,7 @@ const AddExperience = ({ addExperience, history }) => {
         positions that you have had in the past
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={evt => onSubmit(evt)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='text'

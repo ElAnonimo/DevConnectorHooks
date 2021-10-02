@@ -17,7 +17,7 @@ const PostForm = ({ addPost }) => {
       <div className='bg-primary p'>
         <h3>Say Something...</h3>
       </div>
-      <form className='form my-1' onSubmit={evt => onSubmit(evt)}>
+      <form className='form my-1' onSubmit={onSubmit}>
         <textarea
           name='text'
           cols='30'

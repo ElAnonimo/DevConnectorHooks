@@ -4,4 +4,4 @@ This is a full stack M.E.R.N application designed to showcase developer profiles
 It comes with a simple forum for the users to share their thoughts and like/unlike the posts of the others.
 
 Before launch the application please install the dependencies. To run the application please execute `npm run dev`.
-The apllication runs on http://localhost:3000.
+The application runs on http://localhost:3000.

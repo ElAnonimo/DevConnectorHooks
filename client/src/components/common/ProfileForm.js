@@ -71,15 +71,20 @@ const ProfileForm = ({
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>{edit ? 'Update Your Profile' : 'Create Your Profile'}</h1>
+      <h1 className='large text-primary'>{`${edit ? 'Update' : 'Create'} Your Profile`}</h1>
       <p className='lead'>
         <i className='fas fa-user' /> Let's get some information to make your profile stand out
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={evt => onSubmit(evt)}>
+      <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
-          <select name='status' value={status} onChange={onChange}>
-            <option value='0'>* Select Professional Status</option>
+          <select
+            name='status'
+            value={status}
+            defaultValue=''
+            onChange={onChange}
+          >
+            <option value='' disabled>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
             <option value='Senior Developer'>Senior Developer</option>
