@@ -2,6 +2,10 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+const strArrToStr = arr => {
+  return arr.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : '') + value);
+};
+
 const ProfileForm = ({
   profile,
   edit,
@@ -32,7 +36,7 @@ const ProfileForm = ({
         website: profile?.website || '',
         location: profile?.location || '',
         status: profile?.status || '',
-        skills: profile?.skills?.join() || '',
+        skills: profile?.skills ? strArrToStr(profile.skills) : '',
         githubUsername: profile?.githubUsername || '',
         bio: profile?.bio || '',
         twitter: profile?.social?.twitter || '',
