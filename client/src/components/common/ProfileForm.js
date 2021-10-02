@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const strArrToStr = arr => {
-  return arr.reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : '') + value);
+  return arr.reduce((text, value, i, array) => text + (i < array.length ? ', ' : '') + value);
 };
 
 const ProfileForm = ({
