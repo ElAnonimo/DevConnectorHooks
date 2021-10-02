@@ -41,7 +41,7 @@ const Login = ({ login, isAuthenticated }) => {
             placeholder='Email Address'
             name='email'
             value={email}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -51,7 +51,7 @@ const Login = ({ login, isAuthenticated }) => {
             name='password'
             minLength='6'
             value={password}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <input type='submit' className='btn btn-primary' value='Login' />

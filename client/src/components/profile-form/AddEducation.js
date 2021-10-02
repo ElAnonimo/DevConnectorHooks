@@ -57,7 +57,7 @@ const AddEducation = ({ addEducation, history }) => {
             name='school'
             value={school}
             required
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -67,7 +67,7 @@ const AddEducation = ({ addEducation, history }) => {
             name='degree'
             value={degree}
             required
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -76,7 +76,7 @@ const AddEducation = ({ addEducation, history }) => {
             placeholder='Field of Study'
             name='field of study'
             value={fieldOfStudy}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -85,7 +85,7 @@ const AddEducation = ({ addEducation, history }) => {
             type='date'
             name='from'
             value={from}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -106,7 +106,7 @@ const AddEducation = ({ addEducation, history }) => {
             name='to'
             disabled={toDateDisabled ? 'disabled' : ''}
             value={to}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
@@ -116,7 +116,7 @@ const AddEducation = ({ addEducation, history }) => {
             cols='30'
             rows='5'
             placeholder='Program Description'
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
         </div>
         <input type='submit' className='btn btn-primary my-1' />

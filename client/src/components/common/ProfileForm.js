@@ -78,7 +78,7 @@ const ProfileForm = ({
       <small>* = required field</small>
       <form className='form' onSubmit={evt => onSubmit(evt)}>
         <div className='form-group'>
-          <select name='status' value={status} onChange={evt => onChange(evt)}>
+          <select name='status' value={status} onChange={onChange}>
             <option value='0'>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
@@ -97,7 +97,7 @@ const ProfileForm = ({
             placeholder='Company'
             name='company'
             value={company}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
           <small className='form-text'>Could be your own company or one you work for</small>
         </div>
@@ -107,7 +107,7 @@ const ProfileForm = ({
             placeholder='Website'
             name='website'
             value={website}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
           <small className='form-text'>Could be your own or a company website</small>
         </div>
@@ -117,7 +117,7 @@ const ProfileForm = ({
             placeholder='Location'
             name='location'
             value={location}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
           <small className='form-text'>City & state suggested (eg. Boston, MA)</small>
         </div>
@@ -127,7 +127,7 @@ const ProfileForm = ({
             placeholder='* Skills'
             name='skills'
             value={skills}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
           <small className='form-text'>Please use comma separated values (e.g.
             HTML, CSS, JavaScript, PHP)
@@ -139,7 +139,7 @@ const ProfileForm = ({
             placeholder='Github Username'
             name='githubUsername'
             value={githubUsername}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
           <small className='form-text'>If you want your latest repos and a Github link, include your
             username
@@ -150,7 +150,7 @@ const ProfileForm = ({
             placeholder='A short bio of yourself'
             name='bio'
             value={bio}
-            onChange={evt => onChange(evt)}
+            onChange={onChange}
           />
           <small className='form-text'>Tell us a little about yourself</small>
         </div>
@@ -175,7 +175,7 @@ const ProfileForm = ({
                 placeholder='Twitter URL'
                 name='twitter'
                 value={twitter}
-                onChange={evt => onChange(evt)}
+                onChange={onChange}
               />
             </div>
 
@@ -186,7 +186,7 @@ const ProfileForm = ({
                 placeholder='Facebook URL'
                 name='facebook'
                 value={facebook}
-                onChange={evt => onChange(evt)}
+                onChange={onChange}
               />
             </div>
 
@@ -197,7 +197,7 @@ const ProfileForm = ({
                 placeholder='YouTube URL'
                 name='youtube'
                 value={youtube}
-                onChange={evt => onChange(evt)}
+                onChange={onChange}
               />
             </div>
 
@@ -208,7 +208,7 @@ const ProfileForm = ({
                 placeholder='LinkedIn URL'
                 name='linkedin'
                 value={linkedin}
-                onChange={evt => onChange(evt)}
+                onChange={onChange}
               />
             </div>
 
@@ -219,7 +219,7 @@ const ProfileForm = ({
                 placeholder='Instagram URL'
                 name='instagram'
                 value={instagram}
-                onChange={evt => onChange(evt)}
+                onChange={onChange}
               />
             </div>
           </Fragment>
