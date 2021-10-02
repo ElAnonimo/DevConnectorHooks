@@ -9,9 +9,9 @@ const connectDb = async () => {
       useCreateIndex: true,
       useFindAndModify: false
     });
-    console.log('MongoLab connected.');
+    console.log('MongoDB Atlas connected.');
   } catch(err) {
-    console.error('MongoLab connection error:', err.message);
+    console.error('MongoDB Atlas connection error:', err.message);
   }
 };
 

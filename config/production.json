@@ -1,5 +1,5 @@
 {
-  "mongoUri": "mongodb://devconnector_hooks:parol1@ds135107.mlab.com:35107/devconnector_hooks",
+  "mongoUri": "mongodb+srv://devconnectorhooks:3xjx6q6oxz@devconnectorhooks.85nfo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   "jwtSecret": "jwtSecret",
   "githubClientId": "4ac6a5b8022a54494fec",
   "githubClientSecret": "52a6b4295348c0271e4cb82ccc67aee5283039bd"
