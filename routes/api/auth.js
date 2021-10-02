@@ -17,7 +17,7 @@ router.get('/', auth, async (req, res) => {
       .findById(req.user.id)
       .select('-password');
 
-    res.json({ user });
+    await res.json({ user });
   } catch(err) {
     console.log('user fetch error:', err.message);
     res.status(500).send({ message: 'user fetch error' });
@@ -58,7 +58,7 @@ router.post('/', [
       }
     };
 
-    jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 999999999999999 }, (err, token) => {
+    jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 60 * 60 }, (err, token) => {
       if (err) {
         throw err;
       }

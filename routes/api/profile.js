@@ -20,7 +20,7 @@ router.get('/me', auth, async (req, res) => {
       return res.status(400).json({ message: 'no profile for this user' });
     }
 
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error fetching current user:', err.message);
     res.status(500).send({ message: 'error fetching current user' });
@@ -64,13 +64,13 @@ router.post('/', [auth, [
         { new: true }
       );
 
-      return res.json(profile);
+      return await res.json(profile);
     }
 
     // create profile
     profile = new Profile(profileFields);
     await profile.save();
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error creating or updating user:', err.message);
     res.status(500).send({ message: 'error creating or updating user' });
@@ -86,7 +86,7 @@ router.get('/', async(req, res) => {
       .find({})
       .populate('user', ['name', 'userpic']);
 
-    res.json(profiles);
+    await res.json(profiles);
   } catch(err) {
     console.log('error fetching all user profiles:', err.message);
     res.status(500).send({ message: 'error fetching all user profiles' });
@@ -107,7 +107,7 @@ router.get('/user/:user_id', async(req, res) => {
       return res.status(400).json({ message: 'no profile for this user ID' });
     }
 
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error fetching user profile:', err.message);
 
@@ -127,7 +127,7 @@ router.delete('/', auth, async(req, res) => {
     await Profile.findOneAndRemove({ user: req.user.id });
     await User.findOneAndRemove({ _id: req.user.id });
 
-    res.json({ message: 'user deleted' });
+    await res.json({ message: 'user deleted' });
   } catch(err) {
     console.log('error deleting user profile:', err.message);
 
@@ -165,16 +165,6 @@ router.put('/experience', [auth, [
     description
   } = req.body;
 
-  /* const newExp = {
-    title,
-    company,
-    location,
-    from,
-    to,
-    current,
-    description
-  }; */
-
   const newExp = {};
   experienceFields.forEach(item => req.body[item] && (newExp[item] = req.body[item]));
 
@@ -183,7 +173,7 @@ router.put('/experience', [auth, [
     profile.experience.unshift(newExp);
     await profile.save();
 
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error adding experience to user profile:', err.message);
     res.status(500).json({ message: 'error adding experience to user profile' });
@@ -203,7 +193,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     profile.experience.splice(removeIndex, 1);
     await profile.save();
 
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error deleting experience from user profile:', err.message);
     res.status(500).json({ message: 'error deleting experience from user profile' });
@@ -237,16 +227,6 @@ router.put('/education', [auth, [
     description
   } = req.body;
 
-  /* const newEdu = {
-    school,
-    degree,
-    'field of study': fieldOfStudy,
-    from,
-    to,
-    current,
-    description
-  }; */
-
   const newEdu = {};
   educationFields.forEach(item => req.body[item] && (newEdu[item] = req.body[item]));
 
@@ -255,7 +235,7 @@ router.put('/education', [auth, [
     profile.education.unshift(newEdu);
     await profile.save();
 
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error adding education to user profile:', err.message);
     res.status(500).json({ message: 'error adding education to user profile' });
@@ -275,7 +255,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     profile.education.splice(removeIndex, 1);
     await profile.save();
 
-    res.json(profile);
+    await res.json(profile);
   } catch(err) {
     console.log('error deleting education from user profile:', err.message);
     res.status(500).json({ message: 'error deleting education from user profile' });

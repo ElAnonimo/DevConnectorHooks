@@ -29,7 +29,7 @@ router.post('/', [auth, [check('text', 'text is required').not().isEmpty()]], as
 
     const post = new Post(newPost);
     await post.save();
-    res.json(post);
+    await res.json(post);
   } catch(err) {
     console.log('error creating post:', err.message);
     res.status(500).json({ message: 'error creating post' });
@@ -45,7 +45,7 @@ router.get('/', auth, async (req, res) => {
       .find({})
       .sort({ date: -1 });    // -1 to sort descending
 
-    res.json(posts);
+    await res.json(posts);
   } catch(err) {
     console.log('error fetching all posts:', err.message);
     res.status(500).json({ message: 'error fetching all posts' });
@@ -63,7 +63,7 @@ router.get('/:id', auth, async (req, res) => {
       return res.status(404).json({ message: 'no post found for this post id' });
     }
 
-    res.json(post);
+    await res.json(post);
   } catch(err) {
     console.log('error fetching post by id:', err.message);
 
@@ -94,7 +94,7 @@ router.delete('/:id', auth, async (req, res) => {
 
     await post.remove();
 
-    res.json({ message: 'post deleted' });
+    await res.json({ message: 'post deleted' });
   } catch(err) {
     console.log('error removing post by id:', err.message);
 
@@ -123,7 +123,7 @@ router.put('/like/:id', auth, async (req, res) => {
 
     await post.save();
 
-    res.json(post.likes);
+    await res.json(post.likes);
   } catch(err) {
     console.log('error liking post:', err.message);
     res.status(500).json({ message: 'error liking post' });
@@ -149,7 +149,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
 
     await post.save();
 
-    res.json(post.likes);
+    await res.json(post.likes);
   } catch(err) {
     console.log('error liking post:', err.message);
     res.status(500).json({ message: 'error liking post' });
@@ -183,7 +183,7 @@ router.post('/comment/:id', [auth, [check('text', 'text is required').not().isEm
     post.comments.unshift(newComment);
 
     await post.save();
-    res.json(post.comments);
+    await res.json(post.comments);
   } catch(err) {
     console.log('error adding comment:', err.message);
     res.status(500).json({ message: 'error adding comment' });
@@ -216,7 +216,7 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
 
     await post.save();
 
-    res.json(post.comments);
+    await res.json(post.comments);
   } catch(err) {
     console.log('error deleting comment:', err.message);
     res.status(500).json({ message: 'error deleting comment' });
